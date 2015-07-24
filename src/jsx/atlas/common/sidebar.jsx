@@ -33,7 +33,7 @@ class ApplicationSidebar extends React.Component {
                   </SidebarNavItem>
                   <SidebarNavItem glyph='icon-fontello-location-inv' name={<span>Places <BLabel className='bg-darkgreen45 fg-white'>3</BLabel></span>} >
                     <SidebarNav>
-                      <SidebarNavItem glyph='icon-fontello-direction-2' name='Fairfield' lat=23 onClick={this.handleClick} />
+                      <SidebarNavItem glyph='icon-fontello-direction-2' name='Fairfield' onClick={this.handleClick} />
                       <SidebarNavItem glyph='icon-fontello-direction-2' name='Napa' />
                       <SidebarNavItem glyph='icon-fontello-direction-outline' name='Make New Place' />
                     </SidebarNav>

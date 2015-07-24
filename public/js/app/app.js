@@ -1,5 +1,3 @@
-/*! rubix - v3.0.0 - 2015-07-21 [copyright: SketchPixy LLP, email: support@sketchpixy.com] */
-(function() {
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -58,9 +56,10 @@
 
 	var _globalRouter = __webpack_require__(43);
 
+	/* Initialize Locales */
+
 	var _globalRouter2 = _interopRequireDefault(_globalRouter);
 
-	/* Initialize Locales */
 	l20n.initializeLocales(("app"), {
 	  'locales': ['en-US', 'fr', 'it', 'ge', 'ar', 'ch'],
 	  'default': 'en-US'
@@ -4498,28 +4497,28 @@
 	                for (var i = 0; i < count; i++) {
 	                    var paragraphLength = this.randomInt(10, 20);
 	                    var paragraph = this.createText(paragraphLength, Lorem.TYPE.SENTENCE);
-	                    paragraphs.push("<p>" + paragraph + "</p>");
+	                    paragraphs.push('<p>' + paragraph + '</p>');
 	                }
-	                return paragraphs.join("\n");
+	                return paragraphs.join('\n');
 	                break;
 	            //sentences are loads of words.
 	            case Lorem.TYPE.SENTENCE:
 	                var sentences = new Array();
 	                for (var i = 0; i < count; i++) {
 	                    var sentenceLength = this.randomInt(5, 10);
-	                    var words = this.createText(sentenceLength, Lorem.TYPE.WORD).split(" ");
+	                    var words = this.createText(sentenceLength, Lorem.TYPE.WORD).split(' ');
 	                    words[0] = words[0].substr(0, 1).toUpperCase() + words[0].substr(1);
-	                    var sentence = words.join(" ");
+	                    var sentence = words.join(' ');
 
 	                    sentences.push(sentence);
 	                }
-	                return (sentences.join(". ") + ".").replace(/(\.\,|\,\.)/g, ".");
+	                return (sentences.join('. ') + '.').replace(/(\.\,|\,\.)/g, '.');
 	                break;
 	            //words are words
 	            case Lorem.TYPE.WORD:
 	                var wordIndex = this.randomInt(0, Lorem.WORDS.length - count - 1);
 
-	                return Lorem.WORDS.slice(wordIndex, wordIndex + count).join(" ").replace(/\.|\,/g, "");
+	                return Lorem.WORDS.slice(wordIndex, wordIndex + count).join(' ').replace(/\.|\,/g, '');
 	                break;
 	        }
 	    };
@@ -4529,7 +4528,7 @@
 	        var count;
 
 	        if (/\d+-\d+[psw]/.test(this.query)) {
-	            var range = this.query.replace(/[a-z]/, "").split("-");
+	            var range = this.query.replace(/[a-z]/, '').split("-");
 	            count = Math.floor(Math.random() * parseInt(range[1])) + parseInt(range[0]);
 	        } else {
 	            count = parseInt(this.query);
@@ -4544,23 +4543,23 @@
 	        }
 
 	        lorem.push(this.createText(count, type));
-	        lorem = lorem.join(" ");
+	        lorem = lorem.join(' ');
 
 	        if (element) {
 	            if (this.type == Lorem.TEXT) element.innerHTML += lorem;else if (this.type == Lorem.IMAGE) {
 	                //TODO: for now, using lorempixel.
-	                var path = "";
-	                var options = this.query.split(" ");
-	                if (options[0] == "gray") {
-	                    path += "/g";
-	                    options[0] = "";
+	                var path = '';
+	                var options = this.query.split(' ');
+	                if (options[0] == 'gray') {
+	                    path += '/g';
+	                    options[0] = '';
 	                }
-	                if (element.getAttribute("width")) path += "/" + element.getAttribute("width");
+	                if (element.getAttribute('width')) path += '/' + element.getAttribute('width');
 
-	                if (element.getAttribute("height")) path += "/" + element.getAttribute("height");
+	                if (element.getAttribute('height')) path += '/' + element.getAttribute('height');
 
-	                path += "/" + options.join(" ").replace(/(^\s+|\s+$)/, "");
-	                element.src = "http://lorempixel.com" + path.replace(/\/\//, "/");
+	                path += '/' + options.join(' ').replace(/(^\s+|\s+$)/, '');
+	                element.src = 'http://lorempixel.com' + path.replace(/\/\//, '/');
 	            }
 	        }
 
@@ -4577,17 +4576,17 @@
 	    },
 	    getDefaultProps: function getDefaultProps() {
 	        return {
-	            type: "text"
+	            type: 'text'
 	        };
 	    },
 	    componentDidMount: function componentDidMount() {
 	        var lorem = new Lorem();
 
 	        switch (this.props.type) {
-	            case "img":
+	            case 'img':
 	                lorem.type = Lorem.IMAGE;
 	                break;
-	            case "text":
+	            case 'text':
 	            default:
 	                lorem.type = Lorem.TEXT;
 	                break;
@@ -4600,11 +4599,11 @@
 	        var props = _extends({
 	            type: null,
 	            query: null,
-	            ref: "node"
+	            ref: 'node'
 	        }, this.props);
 
 	        var ComponentClass;
-	        if (this.props.type === "text") return React.createElement("span", props);else return React.createElement("img", props);
+	        if (this.props.type === 'text') return React.createElement("span", props);else return React.createElement("img", props);
 	    }
 	});
 	module.exports = exports["default"];
@@ -4773,4 +4772,3 @@
 
 /***/ }
 /******/ ]);
-})();
